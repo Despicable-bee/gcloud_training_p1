@@ -33,7 +33,7 @@ class Calculator_Helper:
             return False
     
     def get_operation(self, operation: calculator_pb2.ComputeOperations) -> \
-            Optional[Object]:
+            Optional[object]:
         """ Gets the function that corresponds to the request """
         method = getattr(self, str(operation).lower() + '_operation', 
                 lambda: None)
