@@ -1,0 +1,41 @@
+/*******************************************************************************
+  FILENAME: calculator.proto
+  
+  AUTHOR: Harry Nowakowski
+  DESCRIPTION: An API framework for a calculator implemented in the cloud
+  LICENSE:    
+*******************************************************************************/
+
+syntax = "proto3";
+
+package endpoints.calculator;
+
+enum ComputeOperations {
+    ADD = 0;
+    SUBTRACT = 1;
+    MULTIPLY = 2;
+    DIVIDE = 3;
+}
+
+enum ComputeStatus {
+    OPERATION_SUCCESSFUL = 0;       // All went smoothly
+    UNKNOWN_OPERATION = 1;          // Like when you divide something by zero
+    ILLEGAL_OPERATION = 2;          // User didn't specify numbers
+    OPERATION_UNSUCCESSFUL = 3;     // Something went wrong with the server
+    INCORRECT_FORMAT = 4;           // e.g. The user puts a string into a float
+}
+
+message ComputationRequest {
+    float firstNumber = 1;
+    float secondNumber = 2;
+    ComputeOperations operation = 3;
+}
+
+message ComputationResponse {
+    float responseValue = 1;
+    ComputeStatus responseStatus = 2;
+}
+
+service CloudCalculator {
+    rpc compute (ComputationRequest) returns (ComputationResponse);
+}
