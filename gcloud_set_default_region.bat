@@ -1,10 +1,10 @@
 @ECHO OFF 
 :: This batch file deploys the docker container
 :: By Harry Nowakowski
-TITLE Calculator docker builder
+TITLE Gcloud Sydney Region setter
 ECHO --------------------------------------------
-ECHO Google Cloud training container deployer
-ECHO Deploying container...
+ECHO Google Cloud Region setter
+ECHO Setting region...
 :: The CMD part causes the gcloud function to run in its own nested environment
 ::  which won't interfere with the top level environment.
 CMD /c gcloud config set run/region australia-southeast1
