@@ -16,7 +16,7 @@ _PORT = os.environ["PORT"]
 class CloudCalculator(calculator_pb2_grpc.CloudCalculatorServicer):
     def compute(self, 
             request: calculator_pb2.ComputationRequest, 
-            context: grpc.ServicerContext) -> None:
+            context: grpc.ServicerContext) -> calculator_pb2.ComputationResponse:
         """ Performs a specific computation """
         # Initialise the calculator helper
         ch = calculator_helper.Calculator_Helper(request.firstNumber,
@@ -54,6 +54,6 @@ class CloudCalculator(calculator_pb2_grpc.CloudCalculatorServicer):
         
         # Return the result
         return calculator_pb2.ComputationResponse(
-            responseStatus=calculator_pb2.ComputeStatus.OPERATION_SUCCESSFUL,
-            responseValue=1.0
+            responseStatus=returnStatus,
+            responseValue=returnValue
         )
