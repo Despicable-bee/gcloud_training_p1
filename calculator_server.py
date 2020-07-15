@@ -19,33 +19,42 @@ class CloudCalculator(calculator_pb2_grpc.CloudCalculatorServicer):
             context: grpc.ServicerContext) -> calculator_pb2.ComputationResponse:
         """ Performs a specific computation """
         # Initialise the calculator helper
-        ch = calculator_helper.Calculator_Helper(request.firstNumber,
+        ch = calculator_helper.Calculator_Helper(request.firstNumber, 
                 request.secondNumber)
         # Set Default return values
         returnStatus = calculator_pb2.ComputeStatus.OPERATION_UNSUCCESSFUL
-        returnValue = 0
+        returnValue = -1
         try:
             # Determine what operation we want to perform
+            logging.info("here we go")
             method = ch.get_operation(request.operation)
+            logging.info("%s", method)
             if method == None:
                 # Unknown/Illegal operation
                 returnStatus = calculator_pb2.ComputeStatus.UNKNOWN_OPERATION
             else:
                 # Call the function
                 returnValue = method()
+                logging.info("%s", returnValue)
+                logging.info("something 0")
                 if returnValue == None:
                     if not ch.check_operands():
+                        logging.info("something 1")
                         # Either information missing or wrong format 
                         # (i.e. string when it should be a float)
                         returnStatus = calculator_pb2.ComputeStatus.\
                                 INCORRECT_FORMAT
-                    elif request.operation == calculator_pb2.ComputeStatus.\
+                    elif request.operation == calculator_pb2.ComputeOperations.\
                             DIVIDE and request.secondNumber == 0:
+                        logging.info("something 2")
                         # Divide by zero case
                         returnStatus = calculator_pb2.ComputeStatus.\
                                 ILLEGAL_OPERATION
+                    else:
+                        logging.info("something 4")
                     returnValue = 0
                 else:
+                    logging.info("something 3")
                     returnStatus = calculator_pb2.ComputeStatus.\
                             OPERATION_SUCCESSFUL
         except Exception as e:
@@ -56,9 +65,6 @@ class CloudCalculator(calculator_pb2_grpc.CloudCalculatorServicer):
         return calculator_pb2.ComputationResponse(
             responseStatus=returnStatus,
             responseValue=returnValue
-<<<<<<< HEAD
-        )
-=======
         )
 
 def _server(port: Text):
@@ -74,4 +80,3 @@ def _server(port: Text):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     _server(_PORT)
->>>>>>> 833775cbe70facda16858660f9845c2f94925c10
