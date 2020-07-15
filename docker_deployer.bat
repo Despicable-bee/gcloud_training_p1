@@ -7,9 +7,10 @@ ECHO Google Cloud training container deployer
 ECHO Deploying container...
 docker push gcr.io/cloud-training-id/calculator-server:latest
 
-gcloud run deploy --image \
-    gcr.io/cloud-training-id/calculator-server:latest \
-    --platform managed
+gcloud run deploy calculator-server --image^
+ gcr.io/cloud-training-id/calculator-server:latest^
+ --platform managed^
+ --region australia-southeast1
 ECHO Done
 ECHO --------------------------------------------
 PAUSE
