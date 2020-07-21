@@ -11,7 +11,7 @@ import grpc
 
 import calculator_helper
 
-_PORT = os.environ["PORT"]
+_PORT = os.environ['PORT']
 
 class CloudCalculator(calculator_pb2_grpc.CloudCalculatorServicer):
     def compute(self, 
