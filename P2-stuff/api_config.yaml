@@ -1,0 +1,46 @@
+################################################################################
+#   
+#   Filename: api_config.yaml
+#
+#   Description: Configuration file for different api authentication, quotas
+#               and other specifications that dictate the behaviour of the
+#               API.
+#
+################################################################################
+
+type: google.api.Service
+config_version: 3
+name: espv2-beta-test-dmf4chgjea-ts.a.run.app
+title: ESPv2 Beta Calculator Redirector
+apis:
+    - name: endpoints.calculator.CloudCalculator
+#
+#   API Key usage restrictions (there are none, we don't use API keys)
+#
+usage:
+    rules:
+    - selector: "*"
+      allow_unregistered_calls: true
+
+#
+#   Request authentication (any calls to these methods will require auth)
+#
+authentication:
+    providers:
+    - id: cloud-training-jwk
+      issuer: panzerkampfwagen-funf-ausfurung-D-Panther
+      jwks_uri: https://storage.googleapis.com/cloud-training-bucket-69/keys/cloud-training-PUBLIC-key.json
+      audiences: customers
+    rules:
+    - selector: endpoints.calculator.CloudCalculator.compute
+      requirements:
+      - provider_id: cloud-training-jwk
+
+#
+#   Request routing (any calls to the specified methods get routed to the
+#     specified container address)
+#
+backend:
+    rules:
+        - selector: endpoints.calculator.CloudCalculator.compute
+          address: grpcs://calculator-server-dmf4chgjea-ts.a.run.app

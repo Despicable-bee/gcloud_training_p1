@@ -36,6 +36,48 @@ message ComputationResponse {
     ComputeStatus responseStatus = 2;
 }
 
+enum CreateAccountStatus {
+    ACCOUNT_CREATION_SUCCESSFUL = 0;
+    ACCOUNT_CREATION_UNSUCCESSFUL = 1;
+    ACCOUNT_CREATION_ERROR = 2;
+}
+
+message CreateAccountRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message CreateAccountResponse {
+    // Currently there is no email validation or anything
+    CreateAccountStatus status = 1;
+    string jwt = 2;
+    string refresh = 3;
+}
+
+enum LoginStatus {
+    LOGIN_SUCCESSFUL = 0;
+    LOGIN_UNSUCCESSFUL = 1;
+    LOGIN_ERROR = 2;
+}
+
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string jwt = 1;
+    string refresh = 2;
+    LoginStatus status = 3;
+}
+
 service CloudCalculator {
     rpc compute (ComputationRequest) returns (ComputationResponse);
+}
+
+service CloudLogin {
+    // @Brief Creates a user account in the firestore database
+    rpc create_account (CreateAccountRequest) returns (CreateAccountResponse);
+    // @Brief Attempts to log a user in
+    rpc login (LoginRequest) returns (LoginResponse);
 }
