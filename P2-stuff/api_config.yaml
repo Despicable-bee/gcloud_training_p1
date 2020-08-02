@@ -14,6 +14,7 @@ name: espv2-beta-test-dmf4chgjea-ts.a.run.app
 title: ESPv2 Beta Calculator Redirector
 apis:
     - name: endpoints.calculator.CloudCalculator
+    - name: endpoints.calculator.CloudLogin
 #
 #   API Key usage restrictions (there are none, we don't use API keys)
 #
@@ -35,6 +36,9 @@ authentication:
     - selector: endpoints.calculator.CloudCalculator.compute
       requirements:
       - provider_id: cloud-training-jwk
+    - selector: endpoints.calculator.CloudLogin.terminateAccount
+      requirements:
+      - provider_id: cloud-training-jwk
 
 #
 #   Request routing (any calls to the specified methods get routed to the
@@ -44,3 +48,11 @@ backend:
     rules:
         - selector: endpoints.calculator.CloudCalculator.compute
           address: grpcs://calculator-server-dmf4chgjea-ts.a.run.app
+        - selector: endpoints.calculator.CloudLogin.login
+          address: grpcs://calculator-login-dmf4chgjea-ts.a.run.app
+        - selector: endpoints.calculator.CloudLogin.create_account
+          address: grpcs://calculator-login-dmf4chgjea-ts.a.run.app
+        - selector: endpoints.calculator.CloudLogin.terminateAccount
+          address: grpcs://calculator-login-dmf4chgjea-ts.a.run.app
+        - selector: endpoints.calculator.CloudLogin.refresh
+          address: grpcs://calculator-login-dmf4chgjea-ts.a.run.app

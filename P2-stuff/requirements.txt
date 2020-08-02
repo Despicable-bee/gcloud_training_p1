@@ -1,0 +1,7 @@
+argparse
+grpcio
+grpcio-tools
+protobuf
+google-cloud-storage
+google-cloud-firestore
+jwcrypto

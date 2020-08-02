@@ -84,6 +84,16 @@ class CloudLoginStub(object):
                 request_serializer=calculator__pb2.LoginRequest.SerializeToString,
                 response_deserializer=calculator__pb2.LoginResponse.FromString,
                 )
+        self.terminateAccount = channel.unary_unary(
+                '/endpoints.calculator.CloudLogin/terminateAccount',
+                request_serializer=calculator__pb2.terminateRequest.SerializeToString,
+                response_deserializer=calculator__pb2.terminateResponse.FromString,
+                )
+        self.refresh = channel.unary_unary(
+                '/endpoints.calculator.CloudLogin/refresh',
+                request_serializer=calculator__pb2.RefreshRequest.SerializeToString,
+                response_deserializer=calculator__pb2.RefreshResponse.FromString,
+                )
 
 
 class CloudLoginServicer(object):
@@ -103,6 +113,20 @@ class CloudLoginServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def terminateAccount(self, request, context):
+        """@brief Deletes a user from the database
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def refresh(self, request, context):
+        """@brief Processes a refresh request
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CloudLoginServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -115,6 +139,16 @@ def add_CloudLoginServicer_to_server(servicer, server):
                     servicer.login,
                     request_deserializer=calculator__pb2.LoginRequest.FromString,
                     response_serializer=calculator__pb2.LoginResponse.SerializeToString,
+            ),
+            'terminateAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.terminateAccount,
+                    request_deserializer=calculator__pb2.terminateRequest.FromString,
+                    response_serializer=calculator__pb2.terminateResponse.SerializeToString,
+            ),
+            'refresh': grpc.unary_unary_rpc_method_handler(
+                    servicer.refresh,
+                    request_deserializer=calculator__pb2.RefreshRequest.FromString,
+                    response_serializer=calculator__pb2.RefreshResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -155,5 +189,37 @@ class CloudLogin(object):
         return grpc.experimental.unary_unary(request, target, '/endpoints.calculator.CloudLogin/login',
             calculator__pb2.LoginRequest.SerializeToString,
             calculator__pb2.LoginResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def terminateAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/endpoints.calculator.CloudLogin/terminateAccount',
+            calculator__pb2.terminateRequest.SerializeToString,
+            calculator__pb2.terminateResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def refresh(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/endpoints.calculator.CloudLogin/refresh',
+            calculator__pb2.RefreshRequest.SerializeToString,
+            calculator__pb2.RefreshResponse.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)

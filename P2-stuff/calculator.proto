@@ -1,0 +1,118 @@
+/*******************************************************************************
+  FILENAME: calculator.proto
+  
+  AUTHOR: Harry Nowakowski
+  DESCRIPTION: An API framework for a calculator implemented in the cloud
+  LICENSE:    
+*******************************************************************************/
+
+syntax = "proto3";
+
+package endpoints.calculator;
+
+enum ComputeOperations {
+    ADD = 0;
+    SUBTRACT = 1;
+    MULTIPLY = 2;
+    DIVIDE = 3;
+}
+
+enum ComputeStatus {
+    OPERATION_SUCCESSFUL = 0;       // All went smoothly
+    UNKNOWN_OPERATION = 1;          // Like when you divide something by zero
+    ILLEGAL_OPERATION = 2;          // User didn't specify numbers
+    OPERATION_UNSUCCESSFUL = 3;     // Something went wrong with the server
+    INCORRECT_FORMAT = 4;           // e.g. The user puts a string into a float
+}
+
+message ComputationRequest {
+    float firstNumber = 1;
+    float secondNumber = 2;
+    ComputeOperations operation = 3;
+}
+
+message ComputationResponse {
+    float responseValue = 1;
+    ComputeStatus responseStatus = 2;
+}
+
+enum CreateAccountStatus {
+    ACCOUNT_CREATION_SUCCESSFUL = 0;
+    ACCOUNT_CREATION_UNSUCCESSFUL = 1;
+    ACCOUNT_CREATION_ERROR = 2;
+}
+
+message CreateAccountRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message CreateAccountResponse {
+    // Currently there is no email validation or anything
+    CreateAccountStatus status = 1;
+    string jwt = 2;
+    string refresh = 3;
+}
+
+enum LoginStatus {
+    LOGIN_SUCCESSFUL = 0;
+    LOGIN_UNSUCCESSFUL = 1;
+    LOGIN_ERROR = 2;
+}
+
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string jwt = 1;
+    string refresh = 2;
+    LoginStatus status = 3;
+}
+
+enum TerminatorStatus {
+    HASTA_LA_VISTA_BABY = 0;
+    T_1000_SYS_ERR = 1;
+    I_DONT_KNOW = 2;
+}
+
+message terminateRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message terminateResponse {
+    TerminatorStatus status = 1;
+}
+
+enum RefreshStatus {
+    REFRESH_TOKEN_INVALID = 0;
+    REFRESH_TOKEN_VALID = 1;
+}
+
+message RefreshRequest {
+    string jwt = 1;
+    string refresh = 2;
+    string username = 3;
+}
+
+message RefreshResponse {
+    string new_jwt = 1;
+    RefreshStatus status = 2;
+}
+
+service CloudCalculator {
+    rpc compute (ComputationRequest) returns (ComputationResponse);
+}
+
+service CloudLogin {
+    // @Brief Creates a user account in the firestore database
+    rpc create_account (CreateAccountRequest) returns (CreateAccountResponse);
+    // @Brief Attempts to log a user in
+    rpc login (LoginRequest) returns (LoginResponse);
+    // @brief Deletes a user from the database
+    rpc terminateAccount (terminateRequest) returns (terminateResponse);
+    // @brief Processes a refresh request
+    rpc refresh (RefreshRequest) returns (RefreshResponse);
+}

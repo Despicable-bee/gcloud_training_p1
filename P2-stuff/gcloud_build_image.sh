@@ -1,6 +1,5 @@
 #!/bin/bash
 # Copyright 2019 Google LLC
-
 # This script will download the service config and build it into
 # serverless docker image to be used for Cloud Run.
 #
@@ -15,10 +14,8 @@
 #
 # The script will use the latest ESPv2 version by default.
 # Use the -v option to pass in a custom version (example: -v 2.9).
-
 # Fail on any error.
 set -eo pipefail
-
 # Default to the latest released ESPv2 version.
 BASE_IMAGE_NAME="gcr.io/endpoints-release/endpoints-runtime-serverless"
 ESP_TAG="2"
@@ -89,6 +86,7 @@ FROM ${BASE_IMAGE}
 USER root
 ENV ENDPOINTS_SERVICE_PATH /etc/endpoints/service.json
 COPY service.json \${ENDPOINTS_SERVICE_PATH}
+ENV ESPv2_ARGS ^++^--cors_preset=basic++--cors_allow_headers="keep-alive,user-agent,cache-control,content-type,content-transfer-encoding,custom-header-1,x-accept-content-transfer-encoding,x-accept-response-streaming,x-user-agent,x-grpc-web,grpc-timeout"++--cors_expose_headers="grpc-status,grpc-message"
 RUN chown -R envoy:envoy \${ENDPOINTS_SERVICE_PATH} && chmod -R 755 \${ENDPOINTS_SERVICE_PATH}
 USER envoy
 ENTRYPOINT ["/env_start_proxy.py"]

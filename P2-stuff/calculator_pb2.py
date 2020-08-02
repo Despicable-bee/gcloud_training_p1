@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x63\x61lculator.proto\x12\x14\x65ndpoints.calculator\"{\n\x12\x43omputationRequest\x12\x13\n\x0b\x66irstNumber\x18\x01 \x01(\x02\x12\x14\n\x0csecondNumber\x18\x02 \x01(\x02\x12:\n\toperation\x18\x03 \x01(\x0e\x32\'.endpoints.calculator.ComputeOperations\"i\n\x13\x43omputationResponse\x12\x15\n\rresponseValue\x18\x01 \x01(\x02\x12;\n\x0eresponseStatus\x18\x02 \x01(\x0e\x32#.endpoints.calculator.ComputeStatus\":\n\x14\x43reateAccountRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"p\n\x15\x43reateAccountResponse\x12\x39\n\x06status\x18\x01 \x01(\x0e\x32).endpoints.calculator.CreateAccountStatus\x12\x0b\n\x03jwt\x18\x02 \x01(\t\x12\x0f\n\x07refresh\x18\x03 \x01(\t\"2\n\x0cLoginRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"`\n\rLoginResponse\x12\x0b\n\x03jwt\x18\x01 \x01(\t\x12\x0f\n\x07refresh\x18\x02 \x01(\t\x12\x31\n\x06status\x18\x03 \x01(\x0e\x32!.endpoints.calculator.LoginStatus*D\n\x11\x43omputeOperations\x12\x07\n\x03\x41\x44\x44\x10\x00\x12\x0c\n\x08SUBTRACT\x10\x01\x12\x0c\n\x08MULTIPLY\x10\x02\x12\n\n\x06\x44IVIDE\x10\x03*\x89\x01\n\rComputeStatus\x12\x18\n\x14OPERATION_SUCCESSFUL\x10\x00\x12\x15\n\x11UNKNOWN_OPERATION\x10\x01\x12\x15\n\x11ILLEGAL_OPERATION\x10\x02\x12\x1a\n\x16OPERATION_UNSUCCESSFUL\x10\x03\x12\x14\n\x10INCORRECT_FORMAT\x10\x04*u\n\x13\x43reateAccountStatus\x12\x1f\n\x1b\x41\x43\x43OUNT_CREATION_SUCCESSFUL\x10\x00\x12!\n\x1d\x41\x43\x43OUNT_CREATION_UNSUCCESSFUL\x10\x01\x12\x1a\n\x16\x41\x43\x43OUNT_CREATION_ERROR\x10\x02*L\n\x0bLoginStatus\x12\x14\n\x10LOGIN_SUCCESSFUL\x10\x00\x12\x16\n\x12LOGIN_UNSUCCESSFUL\x10\x01\x12\x0f\n\x0bLOGIN_ERROR\x10\x02\x32q\n\x0f\x43loudCalculator\x12^\n\x07\x63ompute\x12(.endpoints.calculator.ComputationRequest\x1a).endpoints.calculator.ComputationResponse2\xc9\x01\n\nCloudLogin\x12i\n\x0e\x63reate_account\x12*.endpoints.calculator.CreateAccountRequest\x1a+.endpoints.calculator.CreateAccountResponse\x12P\n\x05login\x12\".endpoints.calculator.LoginRequest\x1a#.endpoints.calculator.LoginResponseb\x06proto3'
+  serialized_pb=b'\n\x10\x63\x61lculator.proto\x12\x14\x65ndpoints.calculator\"{\n\x12\x43omputationRequest\x12\x13\n\x0b\x66irstNumber\x18\x01 \x01(\x02\x12\x14\n\x0csecondNumber\x18\x02 \x01(\x02\x12:\n\toperation\x18\x03 \x01(\x0e\x32\'.endpoints.calculator.ComputeOperations\"i\n\x13\x43omputationResponse\x12\x15\n\rresponseValue\x18\x01 \x01(\x02\x12;\n\x0eresponseStatus\x18\x02 \x01(\x0e\x32#.endpoints.calculator.ComputeStatus\":\n\x14\x43reateAccountRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"p\n\x15\x43reateAccountResponse\x12\x39\n\x06status\x18\x01 \x01(\x0e\x32).endpoints.calculator.CreateAccountStatus\x12\x0b\n\x03jwt\x18\x02 \x01(\t\x12\x0f\n\x07refresh\x18\x03 \x01(\t\"2\n\x0cLoginRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"`\n\rLoginResponse\x12\x0b\n\x03jwt\x18\x01 \x01(\t\x12\x0f\n\x07refresh\x18\x02 \x01(\t\x12\x31\n\x06status\x18\x03 \x01(\x0e\x32!.endpoints.calculator.LoginStatus\"6\n\x10terminateRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"K\n\x11terminateResponse\x12\x36\n\x06status\x18\x01 \x01(\x0e\x32&.endpoints.calculator.TerminatorStatus\"@\n\x0eRefreshRequest\x12\x0b\n\x03jwt\x18\x01 \x01(\t\x12\x0f\n\x07refresh\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\"W\n\x0fRefreshResponse\x12\x0f\n\x07new_jwt\x18\x01 \x01(\t\x12\x33\n\x06status\x18\x02 \x01(\x0e\x32#.endpoints.calculator.RefreshStatus*D\n\x11\x43omputeOperations\x12\x07\n\x03\x41\x44\x44\x10\x00\x12\x0c\n\x08SUBTRACT\x10\x01\x12\x0c\n\x08MULTIPLY\x10\x02\x12\n\n\x06\x44IVIDE\x10\x03*\x89\x01\n\rComputeStatus\x12\x18\n\x14OPERATION_SUCCESSFUL\x10\x00\x12\x15\n\x11UNKNOWN_OPERATION\x10\x01\x12\x15\n\x11ILLEGAL_OPERATION\x10\x02\x12\x1a\n\x16OPERATION_UNSUCCESSFUL\x10\x03\x12\x14\n\x10INCORRECT_FORMAT\x10\x04*u\n\x13\x43reateAccountStatus\x12\x1f\n\x1b\x41\x43\x43OUNT_CREATION_SUCCESSFUL\x10\x00\x12!\n\x1d\x41\x43\x43OUNT_CREATION_UNSUCCESSFUL\x10\x01\x12\x1a\n\x16\x41\x43\x43OUNT_CREATION_ERROR\x10\x02*L\n\x0bLoginStatus\x12\x14\n\x10LOGIN_SUCCESSFUL\x10\x00\x12\x16\n\x12LOGIN_UNSUCCESSFUL\x10\x01\x12\x0f\n\x0bLOGIN_ERROR\x10\x02*P\n\x10TerminatorStatus\x12\x17\n\x13HASTA_LA_VISTA_BABY\x10\x00\x12\x12\n\x0eT_1000_SYS_ERR\x10\x01\x12\x0f\n\x0bI_DONT_KNOW\x10\x02*C\n\rRefreshStatus\x12\x19\n\x15REFRESH_TOKEN_INVALID\x10\x00\x12\x17\n\x13REFRESH_TOKEN_VALID\x10\x01\x32q\n\x0f\x43loudCalculator\x12^\n\x07\x63ompute\x12(.endpoints.calculator.ComputationRequest\x1a).endpoints.calculator.ComputationResponse2\x86\x03\n\nCloudLogin\x12i\n\x0e\x63reate_account\x12*.endpoints.calculator.CreateAccountRequest\x1a+.endpoints.calculator.CreateAccountResponse\x12P\n\x05login\x12\".endpoints.calculator.LoginRequest\x1a#.endpoints.calculator.LoginResponse\x12\x63\n\x10terminateAccount\x12&.endpoints.calculator.terminateRequest\x1a\'.endpoints.calculator.terminateResponse\x12V\n\x07refresh\x12$.endpoints.calculator.RefreshRequest\x1a%.endpoints.calculator.RefreshResponseb\x06proto3'
 )
 
 _COMPUTEOPERATIONS = _descriptor.EnumDescriptor(
@@ -53,8 +53,8 @@ _COMPUTEOPERATIONS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=598,
-  serialized_end=666,
+  serialized_start=886,
+  serialized_end=954,
 )
 _sym_db.RegisterEnumDescriptor(_COMPUTEOPERATIONS)
 
@@ -94,8 +94,8 @@ _COMPUTESTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=669,
-  serialized_end=806,
+  serialized_start=957,
+  serialized_end=1094,
 )
 _sym_db.RegisterEnumDescriptor(_COMPUTESTATUS)
 
@@ -125,8 +125,8 @@ _CREATEACCOUNTSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=808,
-  serialized_end=925,
+  serialized_start=1096,
+  serialized_end=1213,
 )
 _sym_db.RegisterEnumDescriptor(_CREATEACCOUNTSTATUS)
 
@@ -156,12 +156,69 @@ _LOGINSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=927,
-  serialized_end=1003,
+  serialized_start=1215,
+  serialized_end=1291,
 )
 _sym_db.RegisterEnumDescriptor(_LOGINSTATUS)
 
 LoginStatus = enum_type_wrapper.EnumTypeWrapper(_LOGINSTATUS)
+_TERMINATORSTATUS = _descriptor.EnumDescriptor(
+  name='TerminatorStatus',
+  full_name='endpoints.calculator.TerminatorStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='HASTA_LA_VISTA_BABY', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='T_1000_SYS_ERR', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I_DONT_KNOW', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1293,
+  serialized_end=1373,
+)
+_sym_db.RegisterEnumDescriptor(_TERMINATORSTATUS)
+
+TerminatorStatus = enum_type_wrapper.EnumTypeWrapper(_TERMINATORSTATUS)
+_REFRESHSTATUS = _descriptor.EnumDescriptor(
+  name='RefreshStatus',
+  full_name='endpoints.calculator.RefreshStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='REFRESH_TOKEN_INVALID', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='REFRESH_TOKEN_VALID', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1375,
+  serialized_end=1442,
+)
+_sym_db.RegisterEnumDescriptor(_REFRESHSTATUS)
+
+RefreshStatus = enum_type_wrapper.EnumTypeWrapper(_REFRESHSTATUS)
 ADD = 0
 SUBTRACT = 1
 MULTIPLY = 2
@@ -177,6 +234,11 @@ ACCOUNT_CREATION_ERROR = 2
 LOGIN_SUCCESSFUL = 0
 LOGIN_UNSUCCESSFUL = 1
 LOGIN_ERROR = 2
+HASTA_LA_VISTA_BABY = 0
+T_1000_SYS_ERR = 1
+I_DONT_KNOW = 2
+REFRESH_TOKEN_INVALID = 0
+REFRESH_TOKEN_VALID = 1
 
 
 
@@ -434,20 +496,184 @@ _LOGINRESPONSE = _descriptor.Descriptor(
   serialized_end=596,
 )
 
+
+_TERMINATEREQUEST = _descriptor.Descriptor(
+  name='terminateRequest',
+  full_name='endpoints.calculator.terminateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='username', full_name='endpoints.calculator.terminateRequest.username', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='password', full_name='endpoints.calculator.terminateRequest.password', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=598,
+  serialized_end=652,
+)
+
+
+_TERMINATERESPONSE = _descriptor.Descriptor(
+  name='terminateResponse',
+  full_name='endpoints.calculator.terminateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='endpoints.calculator.terminateResponse.status', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=654,
+  serialized_end=729,
+)
+
+
+_REFRESHREQUEST = _descriptor.Descriptor(
+  name='RefreshRequest',
+  full_name='endpoints.calculator.RefreshRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='jwt', full_name='endpoints.calculator.RefreshRequest.jwt', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='refresh', full_name='endpoints.calculator.RefreshRequest.refresh', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='username', full_name='endpoints.calculator.RefreshRequest.username', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=731,
+  serialized_end=795,
+)
+
+
+_REFRESHRESPONSE = _descriptor.Descriptor(
+  name='RefreshResponse',
+  full_name='endpoints.calculator.RefreshResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='new_jwt', full_name='endpoints.calculator.RefreshResponse.new_jwt', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='endpoints.calculator.RefreshResponse.status', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=797,
+  serialized_end=884,
+)
+
 _COMPUTATIONREQUEST.fields_by_name['operation'].enum_type = _COMPUTEOPERATIONS
 _COMPUTATIONRESPONSE.fields_by_name['responseStatus'].enum_type = _COMPUTESTATUS
 _CREATEACCOUNTRESPONSE.fields_by_name['status'].enum_type = _CREATEACCOUNTSTATUS
 _LOGINRESPONSE.fields_by_name['status'].enum_type = _LOGINSTATUS
+_TERMINATERESPONSE.fields_by_name['status'].enum_type = _TERMINATORSTATUS
+_REFRESHRESPONSE.fields_by_name['status'].enum_type = _REFRESHSTATUS
 DESCRIPTOR.message_types_by_name['ComputationRequest'] = _COMPUTATIONREQUEST
 DESCRIPTOR.message_types_by_name['ComputationResponse'] = _COMPUTATIONRESPONSE
 DESCRIPTOR.message_types_by_name['CreateAccountRequest'] = _CREATEACCOUNTREQUEST
 DESCRIPTOR.message_types_by_name['CreateAccountResponse'] = _CREATEACCOUNTRESPONSE
 DESCRIPTOR.message_types_by_name['LoginRequest'] = _LOGINREQUEST
 DESCRIPTOR.message_types_by_name['LoginResponse'] = _LOGINRESPONSE
+DESCRIPTOR.message_types_by_name['terminateRequest'] = _TERMINATEREQUEST
+DESCRIPTOR.message_types_by_name['terminateResponse'] = _TERMINATERESPONSE
+DESCRIPTOR.message_types_by_name['RefreshRequest'] = _REFRESHREQUEST
+DESCRIPTOR.message_types_by_name['RefreshResponse'] = _REFRESHRESPONSE
 DESCRIPTOR.enum_types_by_name['ComputeOperations'] = _COMPUTEOPERATIONS
 DESCRIPTOR.enum_types_by_name['ComputeStatus'] = _COMPUTESTATUS
 DESCRIPTOR.enum_types_by_name['CreateAccountStatus'] = _CREATEACCOUNTSTATUS
 DESCRIPTOR.enum_types_by_name['LoginStatus'] = _LOGINSTATUS
+DESCRIPTOR.enum_types_by_name['TerminatorStatus'] = _TERMINATORSTATUS
+DESCRIPTOR.enum_types_by_name['RefreshStatus'] = _REFRESHSTATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ComputationRequest = _reflection.GeneratedProtocolMessageType('ComputationRequest', (_message.Message,), {
@@ -492,6 +718,34 @@ LoginResponse = _reflection.GeneratedProtocolMessageType('LoginResponse', (_mess
   })
 _sym_db.RegisterMessage(LoginResponse)
 
+terminateRequest = _reflection.GeneratedProtocolMessageType('terminateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TERMINATEREQUEST,
+  '__module__' : 'calculator_pb2'
+  # @@protoc_insertion_point(class_scope:endpoints.calculator.terminateRequest)
+  })
+_sym_db.RegisterMessage(terminateRequest)
+
+terminateResponse = _reflection.GeneratedProtocolMessageType('terminateResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TERMINATERESPONSE,
+  '__module__' : 'calculator_pb2'
+  # @@protoc_insertion_point(class_scope:endpoints.calculator.terminateResponse)
+  })
+_sym_db.RegisterMessage(terminateResponse)
+
+RefreshRequest = _reflection.GeneratedProtocolMessageType('RefreshRequest', (_message.Message,), {
+  'DESCRIPTOR' : _REFRESHREQUEST,
+  '__module__' : 'calculator_pb2'
+  # @@protoc_insertion_point(class_scope:endpoints.calculator.RefreshRequest)
+  })
+_sym_db.RegisterMessage(RefreshRequest)
+
+RefreshResponse = _reflection.GeneratedProtocolMessageType('RefreshResponse', (_message.Message,), {
+  'DESCRIPTOR' : _REFRESHRESPONSE,
+  '__module__' : 'calculator_pb2'
+  # @@protoc_insertion_point(class_scope:endpoints.calculator.RefreshResponse)
+  })
+_sym_db.RegisterMessage(RefreshResponse)
+
 
 
 _CLOUDCALCULATOR = _descriptor.ServiceDescriptor(
@@ -501,8 +755,8 @@ _CLOUDCALCULATOR = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1005,
-  serialized_end=1118,
+  serialized_start=1444,
+  serialized_end=1557,
   methods=[
   _descriptor.MethodDescriptor(
     name='compute',
@@ -527,8 +781,8 @@ _CLOUDLOGIN = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1121,
-  serialized_end=1322,
+  serialized_start=1560,
+  serialized_end=1950,
   methods=[
   _descriptor.MethodDescriptor(
     name='create_account',
@@ -547,6 +801,26 @@ _CLOUDLOGIN = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_LOGINREQUEST,
     output_type=_LOGINRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='terminateAccount',
+    full_name='endpoints.calculator.CloudLogin.terminateAccount',
+    index=2,
+    containing_service=None,
+    input_type=_TERMINATEREQUEST,
+    output_type=_TERMINATERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='refresh',
+    full_name='endpoints.calculator.CloudLogin.refresh',
+    index=3,
+    containing_service=None,
+    input_type=_REFRESHREQUEST,
+    output_type=_REFRESHRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
