@@ -3,3 +3,6 @@ calculator_pb2.py
 calculator_pb2_grpc.py
 cloud-training-PRIVATE-key.json
 cloud-training-PUBLIC-key.json
+__pycache__
+.vscode
+endpoints_api_descriptor.pb
