@@ -8,7 +8,7 @@ echo "  access to your applications, don't use"
 echo "  in production builds"
 echo 'Generating owner key...'
 gcloud iam service-accounts keys create ~/owner-key.json \
-    --iam-account owner-account@cloud-training-id.iam.gserviceaccount.com
+    --iam-account owner-key@cloud-training-id.iam.gserviceaccount.com
 echo 'Done'
 echo '--------------------------------------------'
 exit

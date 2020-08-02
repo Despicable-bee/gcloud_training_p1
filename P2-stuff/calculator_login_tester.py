@@ -11,7 +11,7 @@ import calculator_pb2_grpc
 from colours import *
 
 # Host and port for the online server
-host = "espv2-beta-test-dmf4chgjea-ts.a.run.app"
+host = "espv2-beta-test-abcdefgh-ts.a.run.app"
 port = "443"
 
 # Host and port for the local server
@@ -118,7 +118,6 @@ def server_test():
     # Place where we put the jwt
     metadata = []
 
-    # Start by creating an account
     # Test the create account mechanism
     print("Create Account test ...", end=" ")
     response = stub.create_account(calculator_pb2.CreateAccountRequest(
@@ -152,6 +151,7 @@ def server_test():
         print("\r>> Done                                ")
         # Test expired token recovery
         print("Compute test with expired token...", end=" ")
+
         try:
             response = calcStub.compute(calculator_pb2.ComputationRequest(
                     firstNumber=1,
@@ -195,9 +195,6 @@ def server_test():
         calculator_login_junit_test(calculator_pb2.HASTA_LA_VISTA_BABY,
                 response.status)
 
-        # value = response.responseValue
-        # status = response.responseStatus
-        # calculator_login_junit_test(calculator_pb2.OPERATION_SUCCESSFUL, status)
     else:
         print("Error")
 

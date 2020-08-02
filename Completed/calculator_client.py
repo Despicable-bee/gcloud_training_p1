@@ -12,7 +12,7 @@ from colours import *
 from calculator_enums import *
 
 # Host and port for the online server
-host = "calculator-server-dmf4chgjea-ts.a.run.app"
+host = "calculator-server-abcdefg-ts.a.run.app"
 port = "443"
 
 # Host and port for the local server
