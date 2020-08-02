@@ -7,7 +7,7 @@ ECHO --------------------------------------------
 ECHO Calculator Protoc Generator
 ECHO Generating client and server stubs...
 python -m grpc_tools.protoc --include_imports --include_source_info^
- --proto_path=. --descriptor_set_out=endpoints_api_descriptor.py^
+ --proto_path=. --descriptor_set_out=endpoints_api_descriptor.pb^
  --python_out=. --grpc_python_out=. calculator.proto
 ECHO Done
 ECHO --------------------------------------------

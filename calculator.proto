@@ -71,6 +71,37 @@ message LoginResponse {
     LoginStatus status = 3;
 }
 
+enum TerminatorStatus {
+    HASTA_LA_VISTA_BABY = 0;
+    T_1000_SYS_ERR = 1;
+    I_DONT_KNOW = 2;
+}
+
+message terminateRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message terminateResponse {
+    TerminatorStatus status = 1;
+}
+
+enum RefreshStatus {
+    REFRESH_TOKEN_INVALID = 0;
+    REFRESH_TOKEN_VALID = 1;
+}
+
+message RefreshRequest {
+    string jwt = 1;
+    string refresh = 2;
+    string username = 3;
+}
+
+message RefreshResponse {
+    string new_jwt = 1;
+    RefreshStatus status = 2;
+}
+
 service CloudCalculator {
     rpc compute (ComputationRequest) returns (ComputationResponse);
 }
@@ -80,4 +111,8 @@ service CloudLogin {
     rpc create_account (CreateAccountRequest) returns (CreateAccountResponse);
     // @Brief Attempts to log a user in
     rpc login (LoginRequest) returns (LoginResponse);
+    // @brief Deletes a user from the database
+    rpc terminateAccount (terminateRequest) returns (terminateResponse);
+    // @brief Processes a refresh request
+    rpc refresh (RefreshRequest) returns (RefreshResponse);
 }
